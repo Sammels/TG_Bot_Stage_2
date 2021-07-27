@@ -46,7 +46,7 @@ from random inport randint
 --------------------------------
 Создаем функцию, которая делает вычисления.
 
-def play_random_numbers(user_number):
+/code def play_random_numbers(user_number):
     bot_number = randint(user_number-150, user_number+200)
     if user_number > bot_number:
         message = f"Вы загадали {user_number}, а мой сверхразум {bot_number}, ты выиграл!"
@@ -55,7 +55,7 @@ def play_random_numbers(user_number):
     else:
         message = f"Вы загадали {user_number}, а мой сверхразум {bot_number}, Ви таки продули свои шекели!"
     return message
-
+/code
 <h3> Делать включение в функцию, было плохой идеей</h3>
 
 
