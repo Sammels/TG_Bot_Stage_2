@@ -46,7 +46,7 @@ from random inport randint
 --------------------------------
 Создаем функцию, которая делает вычисления.
 
-/code def play_random_numbers(user_number):
+def play_random_numbers(user_number):
     bot_number = randint(user_number-150, user_number+200)
     if user_number > bot_number:
         message = f"Вы загадали {user_number}, а мой сверхразум {bot_number}, ты выиграл!"
@@ -55,7 +55,7 @@ from random inport randint
     else:
         message = f"Вы загадали {user_number}, а мой сверхразум {bot_number}, Ви таки продули свои шекели!"
     return message
-/code
+
 <h3> Делать включение в функцию, было плохой идеей</h3>
 
 
@@ -66,16 +66,16 @@ from random inport randint
 2. Ищем в папке picture файлы с расширением .jpg, .jpeg
 3. Выбираем случайную картинку и отсылаем пользователю.
 
-'''dp.add_handler(CommandHandler("cat", send_cat_picture))'''
+dp.add_handler(CommandHandler("cat", send_cat_picture))
 
 Для поиска файлов по шаблону используем модуль glob из стандартной либы.
 Используем * который означает тут может быть что угодно.
 
-'''from glob import glob
+from glob import glob
 print(glob('picture/cat*.jpg'))
 
 print(glob('picture/cat*.jp*g'))
-'''
+
 
 Для выбора случайного элемента  списка мы будем использовать функцию choice из random
 
@@ -84,13 +84,12 @@ print(glob('picture/cat*.jp*g'))
 2. берем его id чата с текущим пользователем из update.effective_chat.id и
 при помощи update.bot.send_photo отправляем фотку.
 
-'''
 def send_cat_picture(update, context):
     cat_photo_list = glob('picture/cat*.jp*g')
     cat_pic_filename = choice(cat_photo_list)
     chat_id = update.effective_chat.id
     context.bot.send_photo(chat_id=chat_id, photo=open(cat_pic_filename, 'rb'))
-'''
+    
 ----------------------------
 Добавление Emoji
 Установка либы,
